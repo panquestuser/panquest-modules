@@ -29,6 +29,6 @@ jobs:
         if: startsWith(github.ref, 'refs/tags/')
         with:
           files: |
-            *.tgz
-            chksum.log
+            *.tar.gz
+            modules.chksum
             

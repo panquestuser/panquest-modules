@@ -18,15 +18,15 @@ KSRC="$KHOME/QTS_Kernel_5.1.0.20230808/GPL_QTS/src/linux-5.10"
 ARCH=x86_64
 
 ### URLS ###
-KERNEL_SOURCE1="https://altushost-swe.dl.sourceforge.net/project/qosgpl/QNAP%20NAS%20GPL%20Source/QTS%205.1.0/QTS_Kernel_5.1.0.20230808.tar.gz.0 "
-KERNEL_SOURCE2="https://altushost-swe.dl.sourceforge.net/project/qosgpl/QNAP%20NAS%20GPL%20Source/QTS%205.1.0/QTS_Kernel_5.1.0.20230808.tar.gz.1 "
-TOOLKIT="https://master.dl.sourceforge.net/project/qosgpl/QNAP%20NAS%20Tool%20Chains/Cross%20Toolchain%20SDK%20%28x86%29%2020180115.tgz "
+KERNEL_SOURCE1="https://altushost-swe.dl.sourceforge.net/project/qosgpl/QNAP%20NAS%20GPL%20Source/QTS%205.1.0/QTS_Kernel_5.1.0.20230808.tar.gz.0"
+KERNEL_SOURCE2="https://altushost-swe.dl.sourceforge.net/project/qosgpl/QNAP%20NAS%20GPL%20Source/QTS%205.1.0/QTS_Kernel_5.1.0.20230808.tar.gz.1"
+TOOLKIT="https://master.dl.sourceforge.net/project/qosgpl/QNAP%20NAS%20Tool%20Chains/Cross%20Toolchain%20SDK%20%28x86%29%2020180115.tgz"
 
 if [ ! -d "$KERNEL_SOURCE" ] && [ ! -d "$CFLAGS" ]; then
 
-    [ ! -f downloads/KERNEL_SOURCE.tar.gz ] && wget "$KERNEL_SOURCE1" -o downloads/KERNEL_SOURCE.tar.gz || echo "File ${file} already downloaded"
-    [ ! -f downloads/KERNEL_SOURCE2.tar.gz ] && wget "$KERNEL_SOURCE2" -o downloads/KERNEL_SOURCE2.tar.gz || echo "File ${file} already downloaded"
-    [ ! -f downloads/TOOLKIT.tar.gz ] && wget "$TOOLKIT" -o downloads/TOOLKIT.tar.gz || echo "File ${file} already downloaded"
+    wget "$KERNEL_SOURCE1" -O downloads/KERNEL_SOURCE.tar.gz
+    wget "$KERNEL_SOURCE2" -O downloads/KERNEL_SOURCE2.tar.gz
+    wget "$TOOLKIT" -O downloads/TOOLKIT.tar.gz
 
     echo "Extracting files "
 

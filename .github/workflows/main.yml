@@ -12,25 +12,16 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: "⭐ Install prerequisites"
+      - name: "* Install prerequisites"
         run: |
           sudo apt-get update
           sudo apt-get install -y build-essential bc curl git zip ftp gcc-aarch64-linux-gnu gcc-arm-linux-gnueabi libssl-dev lftp zstd wget libfl-dev python2 python3 libarchive-tools
 
       - name: "* Compile modules"
         run: |
-         echo "Path : `$PWD`"
-         ls -ls
-         ls /
-         ls ~/
-         pwd
-
-      - name: Tar modules
-        run: |
-          for D in `ls -d *-*`; do
-            (cd ${D} && tar caf ../${D}.tgz *.ko && sha256sum ../${D}.tgz >> ../chksum.log)
-          done
-          #(cd src/firmware && tar caf ../../firmware.tgz *)
+         echo "Starting the compilation of the modules in path : `$PWD`"
+         chmod +x ./compile.sh
+         ./compile.sh
 
       # Publish a release if is a tag
       - name: Release

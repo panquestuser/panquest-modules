@@ -24,9 +24,9 @@ TOOLKIT="https://master.dl.sourceforge.net/project/qosgpl/QNAP%20NAS%20Tool%20Ch
 
 if [ ! -d "$KERNEL_SOURCE" ] && [ ! -d "$CFLAGS" ]; then
 
-    [ ! -f downloads/${file} ] && wget "$url" -o downloads/KERNEL_SOURCE.tar.gz || echo "File ${file} already downloaded"
-    [ ! -f downloads/${file} ] && wget "$url" -o downloads/KERNEL_SOURCE2.tar.gz || echo "File ${file} already downloaded"
-    [ ! -f downloads/${file} ] && wget "$url" -o downloads/TOOLKIT.tar.gz || echo "File ${file} already downloaded"
+    [ ! -f downloads/KERNEL_SOURCE.tar.gz ] && wget "$url" -o downloads/KERNEL_SOURCE.tar.gz || echo "File ${file} already downloaded"
+    [ ! -f downloads/KERNEL_SOURCE2.tar.gz ] && wget "$url" -o downloads/KERNEL_SOURCE2.tar.gz || echo "File ${file} already downloaded"
+    [ ! -f downloads/TOOLKIT.tar.gz ] && wget "$url" -o downloads/TOOLKIT.tar.gz || echo "File ${file} already downloaded"
 
     echo "Extracting files "
 
@@ -40,9 +40,10 @@ else
 
 fi
 
-echo "Compiling..."
+echo "In $PWD and starting compilation..."
+echo "Folders : $(ls -ltr)"
 cd src
-find . -exec touch {} \;
+#find . -exec touch {} \;
 #find $KERNEL_SOURCE -exec touch {} \;
 PARMS="$(cat defines.panquest | xargs)"
 echo "PARMS: $PARMS"

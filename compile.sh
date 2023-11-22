@@ -24,9 +24,9 @@ TOOLKIT="https://master.dl.sourceforge.net/project/qosgpl/QNAP%20NAS%20Tool%20Ch
 
 if [ ! -d "$KERNEL_SOURCE" ] && [ ! -d "$CFLAGS" ]; then
 
-    [ ! -f downloads/KERNEL_SOURCE.tar.gz ] && wget "$url" -o downloads/KERNEL_SOURCE.tar.gz || echo "File ${file} already downloaded"
-    [ ! -f downloads/KERNEL_SOURCE2.tar.gz ] && wget "$url" -o downloads/KERNEL_SOURCE2.tar.gz || echo "File ${file} already downloaded"
-    [ ! -f downloads/TOOLKIT.tar.gz ] && wget "$url" -o downloads/TOOLKIT.tar.gz || echo "File ${file} already downloaded"
+    [ ! -f downloads/KERNEL_SOURCE.tar.gz ] && wget "$KERNEL_SOURCE1" -o downloads/KERNEL_SOURCE.tar.gz || echo "File ${file} already downloaded"
+    [ ! -f downloads/KERNEL_SOURCE2.tar.gz ] && wget "$KERNEL_SOURCE2" -o downloads/KERNEL_SOURCE2.tar.gz || echo "File ${file} already downloaded"
+    [ ! -f downloads/TOOLKIT.tar.gz ] && wget "$TOOLKIT" -o downloads/TOOLKIT.tar.gz || echo "File ${file} already downloaded"
 
     echo "Extracting files "
 

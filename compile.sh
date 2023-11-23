@@ -24,10 +24,10 @@ TOOLKIT="https://master.dl.sourceforge.net/project/qosgpl/QNAP%20NAS%20Tool%20Ch
 
 if [ ! -d "$KERNEL_SOURCE" ] && [ ! -d "$CFLAGS" ]; then
 
-    wget "$KERNEL_SOURCE1" -O downloads/KERNEL_SOURCE.tar.gz
-    wget "$KERNEL_SOURCE2" -O downloads/KERNEL_SOURCE2.tar.gz
-    wget "$TOOLKIT" -O downloads/TOOLKIT.tar.gz
-
+    wget --quiet "$KERNEL_SOURCE1" -O downloads/KERNEL_SOURCE.tar.gz
+    wget --quiet "$KERNEL_SOURCE2" -O downloads/KERNEL_SOURCE2.tar.gz
+    wget --quiet "$TOOLKIT" -O downloads/TOOLKIT.tar.gz
+    ls -l downloads/*
     echo "Extracting files "
     mkdir -p QTS_Kernel_5.1.0.20230808
     cat downloads/KERNEL_SOURCE2.tar.gz >>downloads/KERNEL_SOURCE.tar.gz

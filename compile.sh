@@ -69,4 +69,9 @@ sha256sum="$(sha256sum ../modules.tar.gz | awk '{print $1}')"
 echo $sha256sum >../modules.chksum
 cd ../
 tar tvfz modules.tar.gz
+echo "Compiled $(tar tvfz modules.tar.gz | grep ko | wc -l) modules"
 cat modules.chksum
+echo "Copying modules.tar.gz and modules.chksum to release folder"
+cp modules.tar.gz ../
+cp modules.chksum ../
+echo "Compilation done !"

@@ -64,6 +64,6 @@ find src -name "modules.order" -exec rm -f {} \;
 find src -name "Module.symvers" -exec rm -f {} \;
 
 cd compiled-modules
-tar cvfz modules.tar.gz *.ko
+tar cvfz ../modules.tar.gz *.ko
 sha256sum="$(sha256sum modules.tar.gz | awk '{print $1}')"
-echo $sha256sum >modules.chksum
+echo $sha256sum >../modules.chksum

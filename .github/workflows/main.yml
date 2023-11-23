@@ -24,12 +24,13 @@ jobs:
          ./compile.sh
 
       # Publish a release if is a tag
-      - name: Release
+      - name: " * Create and upload Release files"
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')
         with:
           files: |
-            modules.tar.gz
-            modules.chksum
+            /opt/output/modules.tar.gz
+            /opt/output/modules.chksum
+          tag_name: ${{ github.ref }}
 
             

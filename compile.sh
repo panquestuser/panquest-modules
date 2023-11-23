@@ -72,6 +72,8 @@ tar tvfz modules.tar.gz
 echo "Compiled $(tar tvfz modules.tar.gz | grep ko | wc -l) modules"
 cat modules.chksum
 echo "Copying modules.tar.gz and modules.chksum to release folder"
-cp modules.tar.gz ../
-cp modules.chksum ../
+mkdir /opt/output/
+cp -f modules.tar.gz /opt/output/
+cp -f modules.chksum /opt/output/
 echo "Compilation done !"
+ls -l /opt/output/

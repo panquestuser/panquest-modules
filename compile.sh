@@ -47,7 +47,7 @@ cd src
 #find $KERNEL_SOURCE -exec touch {} \;
 PARMS="$(cat defines.panquest | xargs)"
 echo "PARMS: $PARMS"
-make -j$(nproc) KSRC=$KSRC -C $KSRC M=$(pwd) "${PARMS}" modules
+make -j$(nproc) -C $KSRC M=$(pwd) ${PARMS} modules
 cd ../
 
 find . -name "*.ko" -exec strip --strip-debug {} \;

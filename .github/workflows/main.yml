@@ -7,11 +7,13 @@ on:
   push:
     tags:
     - v*  
-    
+
   workflow_dispatch:
     
 jobs:
   create-release:
+    permissions:
+      contents: write
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -26,6 +28,13 @@ jobs:
          echo "Starting the compilation of the modules in path : `$PWD`"
          chmod +x ./compile.sh
          ./compile.sh
+
+      - name: Upload modules
+        uses: actions/upload-artifact@v3
+        with:
+          name: upload-modules
+          path: /opt/output
+
 
       # Publish a release if is a tag
       - name: " * Create and upload Release files"

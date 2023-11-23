@@ -29,7 +29,7 @@ if [ ! -d "$KERNEL_SOURCE" ] && [ ! -d "$CFLAGS" ]; then
     wget "$TOOLKIT" -O downloads/TOOLKIT.tar.gz
 
     echo "Extracting files "
-
+    mkdir -p QTS_Kernel_5.1.0.20230808
     cat downloads/KERNEL_SOURCE2.tar.gz >>downloads/KERNEL_SOURCE.tar.gz
     tar xfz downloads/KERNEL_SOURCE.tar.gz -C QTS_Kernel_5.1.0.20230808 GPL_QTS/src/linux-5.10
     tar xfz downloads/TOOLKIT.tar.gz -C QTS_Kernel_5.1.0.20230808

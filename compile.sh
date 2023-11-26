@@ -33,6 +33,8 @@ if [ ! -d "$KERNEL_SOURCE" ] && [ ! -d "$CFLAGS" ]; then
     cat downloads/KERNEL_SOURCE2.tar.gz >>downloads/KERNEL_SOURCE.tar.gz
     tar xfz downloads/KERNEL_SOURCE.tar.gz -C QTS_Kernel_5.1.0.20230808 GPL_QTS/src/linux-5.10
     tar xfz downloads/TOOLKIT.tar.gz -C QTS_Kernel_5.1.0.20230808
+    #cp -f $KERNEL_SOURCE/QNAP/
+    ls -ltr $KERNEL_SOURCE
 
 else
 
@@ -63,10 +65,13 @@ find src -name "*.mod" -exec rm -f {} \;
 find src -name "modules.order" -exec rm -f {} \;
 find src -name "Module.symvers" -exec rm -f {} \;
 
+VERSION=$(cat VERSION | awk '{print $2}')
+
 cd compiled-modules
 tar cvfz ../modules.tar.gz *.ko
 sha256sum="$(sha256sum ../modules.tar.gz | awk '{print $1}')"
-echo $sha256sum >../modules.chksum
+echo $VERSION >> ../modules.chksum
+echo "SHA256SUM $sha256sum" >>../modules.chksum
 cd ../
 tar tvfz modules.tar.gz
 echo "Compiled $(tar tvfz modules.tar.gz | grep ko | wc -l) modules"

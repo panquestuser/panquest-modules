@@ -33,7 +33,7 @@ if [ ! -d "$KERNEL_SOURCE" ] && [ ! -d "$CFLAGS" ]; then
     cat downloads/KERNEL_SOURCE2.tar.gz >>downloads/KERNEL_SOURCE.tar.gz
     tar xfz downloads/KERNEL_SOURCE.tar.gz -C QTS_Kernel_5.1.0.20230808 GPL_QTS/src/linux-5.10
     tar xfz downloads/TOOLKIT.tar.gz -C QTS_Kernel_5.1.0.20230808
-    #cp -f $KERNEL_SOURCE/QNAP/
+    cp -f $KERNEL_SOURCE/QNAP/X86_SUMMITRIDGE.cfg $KERNEL_SOURCE/.config
     ls -ltr $KERNEL_SOURCE
 
 else

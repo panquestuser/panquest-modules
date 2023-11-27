@@ -48,7 +48,7 @@ cd src
 #find . -exec touch {} \;
 #find $KERNEL_SOURCE -exec touch {} \;
 PARMS="$(cat defines.panquest | xargs)"
-PARMS+="$(cat $KERNEL_SOURCE/.config | xargs)"
+#PARMS+="$(cat $KERNEL_SOURCE/.config | xargs)"
 echo "PARMS: $PARMS"
 make -j$(nproc) -C $KSRC M=$(pwd) ${PARMS} modules
 cd ../
